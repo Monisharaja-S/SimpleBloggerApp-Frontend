@@ -21,7 +21,12 @@ body {
 }
 
 .bg-main {
-  background-color: var(--main-color) !important;
+  background-color:coral !important;
+  color: maroon;
+}
+.bg-side-bar{
+  background-color:lightsalmon !important;
+  color: maroon;
 }
 
 .auth {
