@@ -81,8 +81,8 @@ export default function Login() {
         <div className="content row gx-0">
           <div className="col-md-5">
             <div className="bg-main text-white h-100 d-flex align-items-center justify-content-center flex-column p-5 text-center">
-              <h2 className="mb-3 fw-bold">Need An Account?</h2>
-              <p>Register Here</p>
+              <h2 className="mb-3 fw-bold">Create An Account</h2>
+            
               <Link to="/register">
                 <button className="btn btn-outline-light fw-bold rounded-pill py-2 px-4">
                   Register
@@ -90,15 +90,15 @@ export default function Login() {
               </Link>
             </div>
           </div>
-          <div className="col-md-7 bg-light">
+          <div className="col-md-7 bg-side-bar" >
             <div className="text-center p-5">
-              <h1 className="text-main fw-bolder">Login Now</h1>
+              <h1 className="fw-bold">Login</h1>
               <form onSubmit={formik.handleSubmit}>
                 {error ? <p className="text-danger ">{error}</p> : ""}
                 <input
                   type="email"
                   className="form-control mt-3"
-                  placeholder="Enter Email"
+                  placeholder="Email"
                   name="email"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
@@ -116,7 +116,7 @@ export default function Login() {
                     id="password-input"
                     type="password"
                     className="form-control mt-3"
-                    placeholder="Enter Password"
+                    placeholder="Password"
                     name="password"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
@@ -160,10 +160,10 @@ export default function Login() {
                     "Login"
                   )}
                 </button>
-                <p className="mt-3">
+                {/* <p className="mt-3">
                   Demo info: Email: learnwithanandh@gmail.com |
                   Password: Anandh1234
-                </p>
+                </p> */}
 
                 <div className="mt-2">
                   <Link to="/forgotPassword" className="forgot-password-link">

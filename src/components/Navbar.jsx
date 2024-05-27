@@ -24,7 +24,7 @@ const Navbar = () => {
     localStorage.removeItem("userName");
 
     // Redirect to the login page
-    navigate("/home");
+    navigate("/login");
   };
 
   // List of paths where the Navbar should not be displayed
@@ -48,7 +48,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
         <Link to="/home" className="navbar-brand">
-          <img src="/logo.png" alt="Logo" width="250" height="50" />
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcBjkEl5dI9KWRjoGawk3jGLVl2oyPkKrJxw&s" alt="Logo" width="50" height="50" />
         </Link>
         {isAuthenticated && (
           <Link to="/createStory" className="nav-link">

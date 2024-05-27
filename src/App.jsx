@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route,Navigate } from "react-router-dom";
 import Register from "./components/Register";
 import { ToastContainer } from "react-toastify";
 import Login from "./components/Login";
@@ -19,7 +19,7 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Info />} />
+        <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/home" element={<BlogHome />} />
         <Route path="/createStory" element={<CreateStory />} />
         <Route path="/story/:storyId" element={<ViewStory />} />

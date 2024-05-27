@@ -98,7 +98,7 @@ export default function Register() {
               </Link>
             </div>
           </div>
-          <div className="col-md-7 bg-light">
+          <div className="col-md-7 bg-side-bar">
             <div className="text-center p-5">
               <h1 className="text-main fw-bolder">Create Account</h1>
               <form onSubmit={formik.handleSubmit}>
