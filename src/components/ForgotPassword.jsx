@@ -19,7 +19,6 @@ export default function ForgotPassword() {
   });
 
   async function sendDataToMail(values) {
-    console.log("Working sendDataToMail");
     setLoading(true);
     try {
       const response = await axios.post(
@@ -67,7 +66,6 @@ export default function ForgotPassword() {
 
   function changeBgForgotPassword() {
     document.getElementById("change").classList.add("auth");
-    console.log("Working changeBgForgotPassword");
   }
 
   return (

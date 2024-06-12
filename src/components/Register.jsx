@@ -1,4 +1,3 @@
-
 import axios from "axios";
 import { useFormik } from "formik";
 import React, { useState } from "react";
@@ -14,7 +13,7 @@ export default function Register() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const validation = yup.object({
+  const validationSchema = yup.object({
     firstName: yup.string().required("Enter First Name"),
     lastName: yup.string().required("Enter Last Name"),
     email: yup
@@ -29,6 +28,30 @@ export default function Register() {
         "Password start with capital letter then from 5 to 10 letters or digits"
       ),
   });
+
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values, { setSubmitting, setTouched }) => {
+      setTouched({
+        firstName: true,
+        lastName: true,
+        email: true,
+        password: true,
+      });
+      if (Object.keys(formik.errors).length === 0) {
+        sendData(values);
+      } else {
+        setSubmitting(false);
+      }
+    },
+  });
+
   async function sendData(values) {
     setLoading(true);
     try {
@@ -41,7 +64,7 @@ export default function Register() {
       setLoading(false);
 
       // Handle successful registration
-      toast.success("Register Successfull. Reset Email Send.",  {
+      toast.success("Register Successful. Reset Email Sent.", {
         position: "top-right",
         autoClose: 1500,
         hideProgressBar: false,
@@ -71,18 +94,11 @@ export default function Register() {
       });
     }
   }
-  const formik = useFormik({
-    initialValues: {
-      username: "",
-      email: "",
-      password: "",
-    },
-    validationSchema: validation,
-    onSubmit: sendData,
-  });
+
   function changeBgRegister() {
     document.getElementById("changeR").classList.add("auth");
   }
+
   return (
     <>
       <div className="container min-vh-100 d-flex align-items-center justify-content-center py-5 py-md-0">
@@ -110,6 +126,7 @@ export default function Register() {
                   name="firstName"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
+                  value={formik.values.firstName}
                 />
                 {formik.errors.firstName && formik.touched.firstName ? (
                   <p className="fs-small ps-1 text-danger text-start">
@@ -125,6 +142,7 @@ export default function Register() {
                   name="lastName"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
+                  value={formik.values.lastName}
                 />
                 {formik.errors.lastName && formik.touched.lastName ? (
                   <p className="fs-small ps-1 text-danger text-start">
@@ -140,6 +158,7 @@ export default function Register() {
                   name="email"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
+                  value={formik.values.email}
                 />
                 {formik.errors.email && formik.touched.email ? (
                   <p className="fs-small ps-1 text-danger text-start">
@@ -157,6 +176,7 @@ export default function Register() {
                     name="password"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
+                    value={formik.values.password}
                   />
                   <i
                     onClick={() => togglePasswordVisibility()}

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { formatISO9075 } from "date-fns";
+import "../componentstyle/Story.css";
 
 export default function Story({
   _id,
@@ -27,6 +28,7 @@ export default function Story({
           <time>{formatISO9075(new Date(createdAt))}</time>
         </p>
         <p className="summary">{summary}</p>
+        <Link to={`/story/${_id}`} className="read-more"> Read More</Link>
       </div>
     </div>
   );

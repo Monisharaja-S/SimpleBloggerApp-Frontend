@@ -21,7 +21,6 @@ export default function ResetPassword() {
 
   // Function to send updated password data to the server
   async function sendUpdatedData(values) {
-    console.log("Working sendUpdatedData");
     setLoading(true);
     try {
       // Replace ":randomString" with the extracted random string
@@ -29,7 +28,6 @@ export default function ResetPassword() {
         `https://capstone-backend-8lpx.onrender.com/api/auth/resetpassword/${randomString}`,
         values
       );
-      console.log("response", response);
       setLoading(false);
       toast.success("Password Updated Successfully", {
         position: "top-right",
@@ -72,7 +70,6 @@ export default function ResetPassword() {
   // Function to change background for the update password button
   function changeBgUpdatePassword() {
     document.getElementById("change").classList.add("auth");
-    console.log("Working changeBgUpdatePassword");
   }
 
   return (
