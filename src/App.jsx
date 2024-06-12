@@ -11,7 +11,7 @@ import UserActivation from "./components/UserActivation";
 import BlogHome from "./components/BlogHome";
 import CreateStory from "./components/CreateStory";
 import EditStory from "./components/EditStory";
-import Info from "./components/Info";
+// import Info from "./components/Info";
 import ViewStory from "./components/ViewStory";
 
 function App() {
